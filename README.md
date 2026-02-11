@@ -66,7 +66,7 @@ It enables:
 Uses only:
 
 ```
-A–Z (26 Latin letters)
+A–Z (26 Latin letters), base26
 ```
 
 No diacritics. No Unicode dependency.
