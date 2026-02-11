@@ -1,18 +1,31 @@
 <p align="center">
-  <h1 align="center">
-    <span style="color:#d00000;">CVNSS</span> <span style="color:#1d4ed8;">4.0</span>
-  </h1>
-  <p align="center">
-    <b>Vietnamese Parallel Script for the Digital Era</b><br>
-    <i>ASCII-safe • Reversible • AI-ready • Cross-platform</i>
-  </p>
+  <a href="https://cvnss.github.io/cvnss-guide/">
+    <img src="assets/banner.svg" alt="CVNSS 4.0 banner" width="100%">
+  </a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/License-MIT-green.svg">
-  <img src="https://img.shields.io/badge/Encoding-ASCII-blue">
-  <img src="https://img.shields.io/badge/Status-Active-success">
-  <img src="[https://img.shields.io/badge/CVNSS-4.0-red](https://cvnss.github.io/cvnss-guide/)">
+  <a href="https://cvnss.github.io/cvnss-guide/">
+    <img src="https://img.shields.io/badge/Docs-Open-blue?style=for-the-badge" alt="Docs">
+  </a>
+  <a href="https://cvnss.github.io/cvnss-guide/docs/spec.html">
+    <img src="https://img.shields.io/badge/Spec-Core%20Draft-orange?style=for-the-badge" alt="Spec">
+  </a>
+  <a href="https://github.com/CVNSS/cvnss-guide/releases">
+    <img src="https://img.shields.io/github/v/release/CVNSS/cvnss-guide?display_name=tag&sort=semver&style=for-the-badge" alt="Version">
+  </a>
+  <a href="https://github.com/CVNSS/cvnss-guide/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://cvnss.github.io/cvnss-guide/">
+    <img src="https://img.shields.io/badge/GitHub%20Pages-Live-success?style=flat-square" alt="Pages">
+  </a>
+  <img src="https://img.shields.io/badge/ASCII-safe-blue?style=flat-square" alt="ASCII-safe">
+  <img src="https://img.shields.io/badge/Unicode-NFC%20normalize-informational?style=flat-square" alt="Unicode">
+  <img src="https://img.shields.io/badge/Standardization-IEEE%2FIETF%20track-orange?style=flat-square" alt="Standardization">
 </p>
 
 ---
