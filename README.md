@@ -251,7 +251,7 @@ https://vietnamhoc.net/chu-vn-song-song-cvnss4-0-trong-boi-canh-cach-mang-cong-n
 * Nguyễn Thiện Toàn
 * ...
 
-**Developer (this tool)**
+**Developer (BiLa Core)**
 
 * Long Ngo
 
