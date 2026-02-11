@@ -12,7 +12,7 @@
   <img src="https://img.shields.io/badge/License-MIT-green.svg">
   <img src="https://img.shields.io/badge/Encoding-ASCII-blue">
   <img src="https://img.shields.io/badge/Status-Active-success">
-  <img src="https://img.shields.io/badge/Research-Open-orange">
+  <img src="[https://img.shields.io/badge/CVNSS-4.0-red](https://cvnss.github.io/cvnss-guide/)">
 </p>
 
 ---
