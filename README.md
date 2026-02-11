@@ -81,8 +81,8 @@ Instead of visual tone marks:
 | ---------- | -------- |
 | tuyết      | tydb     |
 | nguyễn     | wylg     |
-| chào       | caol     |
-| tiếng      | tiejsg   |
+| chào       | chaol     |
+| tiếng      | tizb  |
 
 ---
 
