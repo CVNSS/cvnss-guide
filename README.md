@@ -234,7 +234,7 @@ https://vietnamhoc.net/chu-vn-song-song-cvnss4-0-trong-boi-canh-cach-mang-cong-n
 
 **Maintainer**
 
-* hoaflee
+* Lê Hoàng Hà (hoaflee)
 
 **Core contributors**
 
