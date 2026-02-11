@@ -1,10 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="420">
-  <rect width="1600" height="420" fill="#0b1220"/>
-  <text x="120" y="230" font-size="120" font-family="Arial" font-weight="800">
-    <tspan fill="#ef4444">CVNSS</tspan>
-    <tspan dx="20" fill="#3b82f6">4.0</tspan>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="420" viewBox="0 0 1600 420">
+
+  <!-- Background -->
+  <rect width="1600" height="420" fill="#ffffff"/>
+
+  <!-- Card -->
+  <rect x="80" y="80" width="1440" height="260" rx="24"
+        fill="#f8fafc" stroke="#e5e7eb"/>
+
+  <!-- Title -->
+  <text x="140" y="210"
+        font-size="110"
+        font-family="Segoe UI, Arial"
+        font-weight="800">
+    <tspan fill="#dc2626">Chữ VN Song Song</tspan>
+    <tspan dx="18" fill="#2563eb">4.0</tspan>
   </text>
-  <text x="130" y="290" font-size="32" fill="#cfe0ff" font-family="Arial">
+
+  <!-- Subtitle -->
+  <text x="150" y="270"
+        font-size="34"
+        fill="#334155"
+        font-family="Segoe UI, Arial">
     Vietnamese Parallel Script for the Digital Era
   </text>
+
+  <!-- Flags row -->
+  <!-- Vietnam -->
+  <rect x="150" y="295" width="40" height="26" fill="#da251d"/>
+  <polygon points="170,300 174,310 185,310 176,317 180,327 170,320 160,327 164,317 155,310 166,310"
+           fill="#ffde00"/>
+
+  <text x="200" y="315" font-size="24" fill="#111" font-family="Segoe UI, Arial">Tiếng Việt</text>
+
+  <!-- UK -->
+  <rect x="340" y="295" width="40" height="26" fill="#012169"/>
+  <line x1="340" y1="295" x2="380" y2="321" stroke="#fff" stroke-width="6"/>
+  <line x1="380" y1="295" x2="340" y2="321" stroke="#fff" stroke-width="6"/>
+  <rect x="355" y="295" width="10" height="26" fill="#c8102e"/>
+  <rect x="340" y="305" width="40" height="6" fill="#c8102e"/>
+
+  <text x="390" y="315" font-size="24" fill="#111" font-family="Segoe UI, Arial">English</text>
+
+  <!-- China -->
+  <rect x="500" y="295" width="40" height="26" fill="#de2910"/>
+  <polygon points="510,300 513,307 520,307 514,312 516,320 510,315 504,320 506,312 500,307 507,307"
+           fill="#ffde00"/>
+
+  <text x="550" y="315" font-size="24" fill="#111" font-family="Segoe UI, Arial">中文</text>
+
+  <!-- Japan -->
+  <rect x="650" y="295" width="40" height="26" fill="#ffffff" stroke="#ccc"/>
+  <circle cx="670" cy="308" r="8" fill="#bc002d"/>
+
+  <text x="700" y="315" font-size="24" fill="#111" font-family="Segoe UI, Arial">日本語</text>
+
+  <!-- Korea -->
+  <rect x="820" y="295" width="40" height="26" fill="#ffffff" stroke="#ccc"/>
+  <circle cx="840" cy="305" r="6" fill="#cd2e3a"/>
+  <circle cx="840" cy="311" r="6" fill="#0047a0"/>
+
+  <text x="870" y="315" font-size="24" fill="#111" font-family="Segoe UI, Arial">한국어</text>
+
+  <!-- Cambodia -->
+  <rect x="980" y="295" width="40" height="26" fill="#032ea1"/>
+  <rect x="980" y="303" width="40" height="10" fill="#e00025"/>
+
+  <text x="1030" y="315" font-size="24" fill="#111" font-family="Segoe UI, Arial">ភាសាខ្មែរ</text>
+
+  <!-- Russia -->
+  <rect x="1180" y="295" width="40" height="8" fill="#ffffff"/>
+  <rect x="1180" y="303" width="40" height="8" fill="#0039a6"/>
+  <rect x="1180" y="311" width="40" height="8" fill="#d52b1e"/>
+
+  <text x="1230" y="315" font-size="24" fill="#111" font-family="Segoe UI, Arial">Русский</text>
+
 </svg>
+
