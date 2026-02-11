@@ -243,7 +243,13 @@ https://vietnamhoc.net/chu-vn-song-song-cvnss4-0-trong-boi-canh-cach-mang-cong-n
 * Nguyễn Thị Thái
 * Nguyễn Văn Luận
 * Phạm Hợi
-* …
+* Nguyễn Văn Chung
+* Phạm Thị Là 
+* Lê Xuân Hẳn 
+* Chu Cẩm Tú Linh
+* Trần Huệ Chánh
+* Nguyễn Thiện Toàn
+* ...
 
 **Developer (this tool)**
 
