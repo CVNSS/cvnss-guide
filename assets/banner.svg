@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="420">
+  <rect width="1600" height="420" fill="#0b1220"/>
+  <text x="120" y="230" font-size="120" font-family="Arial" font-weight="800">
+    <tspan fill="#ef4444">CVNSS</tspan>
+    <tspan dx="20" fill="#3b82f6">4.0</tspan>
+  </text>
+  <text x="130" y="290" font-size="32" fill="#cfe0ff" font-family="Arial">
+    Vietnamese Parallel Script for the Digital Era
+  </text>
+</svg>
