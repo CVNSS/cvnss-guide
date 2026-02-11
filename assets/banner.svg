@@ -12,7 +12,7 @@
         font-size="110"
         font-family="Segoe UI, Arial"
         font-weight="800">
-    <tspan fill="#dc2626">Chữ VN Song Song</tspan>
+    <tspan fill="#dc2626">CVNSS</tspan>
     <tspan dx="18" fill="#2563eb">4.0</tspan>
   </text>
 
@@ -75,4 +75,3 @@
   <text x="1230" y="315" font-size="24" fill="#111" font-family="Segoe UI, Arial">Русский</text>
 
 </svg>
-
