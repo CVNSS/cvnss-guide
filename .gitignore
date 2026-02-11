@@ -1,0 +1,9 @@
+.vs/
+bin/
+obj/
+release/
+dist/
+node_modules/
+*.user
+*.suo
+*.cache

@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVNSS 4.0 - Giáo trình tốc ký chữ Việt</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2d5986;
+            --accent: #e63946;
+            --text: #1a202c;
+            --text-light: #4a5568;
+            --bg: #f7fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+            --code-bg: #f1f5f9;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+        }
+
+        .hero {
+            background: var(--gradient-1);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            animation: slideUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero .version {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-top: 1.5rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+            animation: slideUp 0.8s ease-out 0.4s backwards;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-2);
+            color: white;
+            border-radius: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1), 0 16px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box strong {
+            color: var(--accent);
+        }
+
+        .formula {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            border: 2px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .formula-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 1.5rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        th {
+            background: var(--gradient-1);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-card);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: #f8fafc;
+        }
+
+        .code-inline {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--code-bg);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+            padding: 1rem;
+            background: var(--bg);
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: #edf2f7;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .flowchart {
+            background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 2px solid #3b82f6;
+        }
+
+        .flowchart-title {
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .flow-step {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .arrow {
+            text-align: center;
+            color: #3b82f6;
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border: 2px solid #10b981;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-title {
+            font-weight: 700;
+            color: #065f46;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .example-content {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        .toc {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 2px solid var(--border);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .toc-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .toc-list {
+            list-style: none;
+            margin: 0;
+        }
+
+        .toc-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .toc-list li:last-child {
+            border-bottom: none;
+        }
+
+        .toc-list a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .toc-list a:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>CVNSS 4.0</h1>
+        <p class="subtitle">Tốc ký chữ Việt không dấu thời công nghệ số</p>
+        <div class="version">Kiều Trường Lâm & Trần Tư Bình</div>
+    </div>
+
+    <div class="container">
+        <!-- Mục lục -->
+        <div class="toc">
+            <div class="toc-title">📚 Mục lục</div>
+            <ul class="toc-list">
+                <li><a href="#muc-tieu">0. Mục tiêu học tập và phạm vi</a></li>
+                <li><a href="#nen-tang">1. Nền tảng bắt buộc: "Biểu diễn chữ" trong máy tính</a></li>
+                <li><a href="#dinh-nghia">2. Định nghĩa chuẩn</a></li>
+                <li><a href="#dac-diem">3. Đặc điểm cốt lõi</a></li>
+                <li><a href="#cau-truc">4. Cấu trúc hệ thống CVNSS4.0</a></li>
+                <li><a href="#mo-hinh">5. Mô hình hóa âm tiết và công thức tổng quát</a></li>
+                <li><a href="#luu-do">6. Lưu đồ tổng quan</a></li>
+                <li><a href="#bang-cong-thuc">7. Bảng công thức trọng tâm</a></li>
+                <li><a href="#khd">8. KHD: Mã hóa dấu</a></li>
+                <li><a href="#ky-hieu-p">9. Ký hiệu P: Chống hiểu nhầm</a></li>
+                <li><a href="#vi-du">10. Ví dụ minh họa</a></li>
+                <li><a href="#thuat-toan">11. Khung thuật toán</a></li>
+                <li><a href="#ung-dung">12. Ứng dụng</a></li>
+                <li><a href="#lien-nganh">13. Phần liên ngành bắt buộc phân biệt</a></li>
+                <li><a href="#caesar">14. Mật mã Caesar</a></li>
+                <li><a href="#hoan-vi">15. Hoán vị</a></li>
+                <li><a href="#base26">16. Base26</a></li>
+                <li><a href="#morse">17. Mã Morse</a></li>
+                <li><a href="#xep-chong">18. Xếp chồng lớp biến đổi</a></li>
+                <li><a href="#su-pham">19. Ghi chú sư phạm</a></li>
+                <li><a href="#ket-luan">20. Kết luận</a></li>
+            </ul>
+        </div>
+
+        <!-- Section 0 -->
+        <div class="section" id="muc-tieu">
+            <h2 class="section-title">
+                <span class="section-number">0</span>
+                Mục tiêu học tập và phạm vi
+            </h2>
+            <div class="card">
+                <p>Sau khi học xong giáo trình tóm lược này, người học có thể:</p>
+                <div class="grid-2">
+                    <div class="feature-item">
+                        <div class="feature-icon">1</div>
+                        <div>
+                            <strong>Hiểu đúng CVNSS4.0 là gì</strong> (phiên mã/tốc ký ASCII), và khác gì với "bỏ dấu thường" hay "mật mã"
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">2</div>
+                        <div>
+                            <strong>Nắm mô hình âm tiết tiếng Việt:</strong> Onset–Rime–Tone–DiacriticType và cách CVNSS4.0 mã hóa dấu bằng hậu tố
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">3</div>
+                        <div>
+                            <strong>Triển khai pipeline chuẩn:</strong> Unicode Normalize → Parse âm tiết → 4 lần xử lý → Ghép kết quả
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">4</div>
+                        <div>
+                            <strong>Dùng CVNSS4.0 trong:</strong> chat/log/định danh/NLP/IME; và hiểu các lớp mở rộng như Caesar/hoán vị/base26/Morse
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="section" id="nen-tang">
+            <h2 class="section-title">
+                <span class="section-number">1</span>
+                Nền tảng bắt buộc: "Biểu diễn chữ" trong máy tính
+            </h2>
+            
+            <div class="card">
+                <h3 class="card-title">1.1 ASCII (7-bit) và lý do "ASCII-safe"</h3>
+                <p><strong>ASCII chuẩn:</strong> 0–127 (7-bit), gồm A–Z, a–z, 0–9 và ký tự điều khiển.</p>
+                <div class="highlight-box">
+                    <strong>Ưu điểm:</strong> Ổn định trong log, URL/path, định danh, giao thức cũ, môi trường "chỉ ASCII".
+                    <br><br>
+                    <strong>CVNSS4.0</strong> tận dụng ưu điểm này: chỉ dùng 26 chữ cái Latin cơ bản để đảm bảo đi đâu cũng "sống".
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">1.2 Unicode: code point ≠ bytes (UTF-8/UTF-16)</h3>
+                <p>Unicode quy định mã ký tự (code point). UTF-8/UTF-16 là cách biến code point thành dãy byte để lưu/truyền.</p>
+                <p><strong>Điểm thực chiến:</strong> Một chữ tiếng Việt có thể có 2 dạng tương đương về hiển thị:</p>
+                <ul>
+                    <li><strong>NFC:</strong> ký tự dựng sẵn (precomposed)</li>
+                    <li><strong>NFD:</strong> chữ cái + dấu kết hợp (combining mark)</li>
+                </ul>
+                <div class="formula">
+                    <div class="formula-title">Pipeline chuẩn của CVNSS phải có bước:</div>
+                    <code>Normalize(x) = NFC(x)</code>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">1.3 Glyph (hình vẽ) và Font</h3>
+                <p>Code point là "mã", glyph là "hình" font vẽ ra. Hai chuỗi Unicode khác nhau vẫn có thể "trông giống nhau" nếu render khéo.</p>
+                <div class="highlight-box">
+                    <strong>Kết luận kỹ thuật:</strong> CVNSS4.0 là lớp biểu diễn (representation/transliteration) để ổn định nhập liệu & truyền dẫn, không phụ thuộc glyph/font.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section" id="dinh-nghia">
+            <h2 class="section-title">
+                <span class="section-number">2</span>
+                Định nghĩa chuẩn
+            </h2>
+            <div class="card">
+                <div class="highlight-box">
+                    <p><strong>Chữ VN Song Song 4.0 (CVNSS4.0)</strong> là hệ chữ tốc ký tiếng Việt không dùng dấu phụ và dấu thanh trên mặt chữ, chỉ sử dụng <span class="code-inline">26 ký tự Latin cơ bản (A–Z)</span> theo bàn phím Anh–Mỹ.</p>
+                </div>
+                <ul>
+                    <li>CVNSS4.0 <strong>không nhằm thay thế</strong> Chữ Quốc Ngữ (CQN)</li>
+                    <li>CVNSS4.0 dùng <strong>song song</strong> như một lớp biểu diễn ASCII gọn, gõ nhanh, truyền ổn định</li>
+                    <li>Chuyển đổi qua lại với CQN theo quy tắc</li>
+                </ul>
+                <div class="formula">
+                    <div class="formula-title">Tóm gọn:</div>
+                    <code>CVNSS4.0 = "tiếng Việt viết không dấu, nhưng dấu được mã hóa bằng chữ cái hậu tố" + rút gọn cấu trúc vần để tối ưu số phím</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section" id="dac-diem">
+            <h2 class="section-title">
+                <span class="section-number">3</span>
+                Đặc điểm cốt lõi
+            </h2>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="badge">Core 1</span>
+                        "Không dấu" nhưng không mất thông tin
+                    </h3>
+                    <p>CVNSS4.0 không hiển thị â/ă/ơ/ư… và sắc/huyền/hỏi/ngã/nặng, nhưng <strong>mã hóa bằng hậu tố (KHD)</strong> để:</p>
+                    <ul>
+                        <li>Giảm mơ hồ so với "bỏ dấu thường"</li>
+                        <li>Phù hợp môi trường chỉ ASCII (log, path, định danh…)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="badge">Core 2</span>
+                        "Tốc ký" = tối ưu số phím
+                    </h3>
+                    <p>Rút gọn hệ thống: phụ âm đầu/cuối, rút vần dài → ngắn.</p>
+                    <p>Khi tích hợp kiểu gõ: thường <strong>"gõ nhanh hơn"</strong> vì ít thao tác đặt dấu.</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="badge">Core 3</span>
+                        "Song song": 2 chế độ dùng
+                    </h3>
+                    <ul>
+                        <li><strong>Chế độ bộ chữ:</strong> viết CVNSS4.0 trực tiếp</li>
+                        <li><strong>Chế độ kiểu gõ:</strong> gõ CVNSS4.0 nhưng bung ra CQN (IME/engine)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section" id="cau-truc">
+            <h2 class="section-title">
+                <span class="section-number">4</span>
+                Cấu trúc hệ thống CVNSS4.0
+            </h2>
+            <div class="card">
+                <h3 class="card-title">2 tầng + 1 cơ chế khử mơ hồ</h3>
+                
+                <div class="feature-item" style="margin-top: 1.5rem;">
+                    <div class="feature-icon">A</div>
+                    <div>
+                        <strong>Tầng 1 — CVN (rút gọn chữ)</strong>
+                        <p>Rút gọn theo quy tắc: phụ âm đầu, phụ âm cuối, Y/UY, rút vần dài, tối ưu một số trường hợp.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">B</div>
+                    <div>
+                        <strong>Tầng 2 — KHD (mã hóa dấu bằng hậu tố)</strong>
+                        <p>KHD dùng hậu tố chữ cái để mã hóa: dấu phụ (â/ê/ô; ă/ơ/ư…) và dấu thanh (sắc/huyền/hỏi/ngã/nặng/ngang)</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">C</div>
+                    <div>
+                        <strong>Ký hiệu P — chống hiểu nhầm</strong>
+                        <p>Một số mẫu "ngắn quá" có thể trùng/nhầm → thêm P theo quy tắc.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="section" id="mo-hinh">
+            <h2 class="section-title">
+                <span class="section-number">5</span>
+                Mô hình hóa âm tiết và công thức tổng quát
+            </h2>
+            
+            <div class="card">
+                <h3 class="card-title">5.1 Mô hình âm tiết tiếng Việt</h3>
+                <p>Gọi một âm tiết CQN là:</p>
+                <div class="formula">
+                    <code>S = (O, R, T, D)</code>
+                </div>
+                <p>Trong đó:</p>
+                <ul>
+                    <li><strong>O</strong> = Onset (phụ âm đầu)</li>
+                    <li><strong>R</strong> = Rime/Vần (âm chính + âm cuối)</li>
+                    <li><strong>T</strong> = Tone (dấu thanh)</li>
+                    <li><strong>D</strong> = DiacriticType (loại dấu phụ của nguyên âm: nón / trăng-móc / không)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">5.2 Bốn lần xử lý (4 hàm độc lập)</h3>
+                <div class="formula">
+                    <div class="formula-title">Định nghĩa:</div>
+                    <code>
+f₁(S): CVN rút vần + đổi âm cuối (coda map)<br>
+f₂(S): mã hóa dấu KHD (phụ + thanh)<br>
+f₃(S): quy đổi phụ âm đầu/cuối + luật Y/UY + luật đặc biệt<br>
+f₄(S): thêm P nếu rơi vào mẫu dễ trùng
+                    </code>
+                </div>
+                <div class="formula" style="margin-top: 1.5rem;">
+                    <div class="formula-title">Khi đó:</div>
+                    <code>CVNSS(S) = f₁(S) ‖ f₂(S) ‖ f₃(S) ‖ f₄(S)</code>
+                    <p style="margin-top: 0.5rem; font-size: 0.9em; opacity: 0.8;">(‖ là phép nối chuỗi)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="section" id="luu-do">
+            <h2 class="section-title">
+                <span class="section-number">6</span>
+                Lưu đồ tổng quan
+            </h2>
+            <div class="flowchart">
+                <div class="flowchart-title">📊 Sơ đồ chuẩn triển khai</div>
+                
+                <div class="flow-step">
+                    <strong>Input:</strong> Tiếng Việt (CQN/Unicode)
+                </div>
+                <div class="arrow">↓</div>
+                
+                <div class="flow-step">
+                    <strong>Bước 1:</strong> Normalize Unicode NFC
+                </div>
+                <div class="arrow">↓</div>
+                
+                <div class="flow-step">
+                    <strong>Bước 2:</strong> Tách âm tiết: O/R/T/D
+                </div>
+                <div class="arrow">↓</div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                    <div class="flow-step">
+                        <strong>Lần 1:</strong> CVN rút vần + coda map
+                    </div>
+                    <div class="flow-step">
+                        <strong>Lần 2:</strong> KHD mã hóa dấu
+                    </div>
+                    <div class="flow-step">
+                        <strong>Lần 3:</strong> Quy đổi phụ âm đầu/cuối + Y/UY
+                    </div>
+                    <div class="flow-step">
+                        <strong>Lần 4:</strong> P chống nhầm
+                    </div>
+                </div>
+                <div class="arrow">↓</div>
+                
+                <div class="flow-step">
+                    <strong>Ghép kết quả:</strong> 4 nhánh
+                </div>
+                <div class="arrow">↓</div>
+                
+                <div class="flow-step" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white;">
+                    <strong>Output:</strong> Chuỗi CVNSS4.0 (ASCII)
+                </div>
+                <div class="arrow">↓</div>
+                
+                <div class="flow-step" style="border-left-color: #6366f1;">
+                    <strong>Tuỳ chọn:</strong> Caesar/Hoán vị/base26/Morse (giáo trình liên ngành)
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7 -->
+        <div class="section" id="bang-cong-thuc">
+            <h2 class="section-title">
+                <span class="section-number">7</span>
+                Bảng công thức trọng tâm (học nhanh)
+            </h2>
+            
+            <div class="card">
+                <h3 class="card-title">7.1 Thay phụ âm đầu (CQN → CVN)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CQN</th>
+                            <th>CVN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>PH</td><td>F</td></tr>
+                        <tr><td>QU</td><td>Q</td></tr>
+                        <tr><td>K</td><td>C</td></tr>
+                        <tr><td>KH</td><td>K</td></tr>
+                        <tr><td>D</td><td>Z</td></tr>
+                        <tr><td>Đ</td><td>D</td></tr>
+                        <tr><td>GI</td><td>J</td></tr>
+                        <tr><td>GH</td><td>G</td></tr>
+                        <tr><td>NG / NGH</td><td>W</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">7.2 Thay phụ âm cuối (CQN → CVN)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CQN</th>
+                            <th>CVN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>NG</td><td>G</td></tr>
+                        <tr><td>NH</td><td>H</td></tr>
+                        <tr><td>CH</td><td>K</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">7.3 Thay Y/UY</h3>
+                <ul>
+                    <li><span class="code-inline">Y → I</span> (trừ các vần AY, ÂY giữ nguyên)</li>
+                    <li><span class="code-inline">UY → Y</span></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">7.4 Rút gọn "vần dài" theo 2 bước đồng thời</h3>
+                
+                <div style="margin-top: 1.5rem;">
+                    <strong>Bước 1 – Rút gọn nguyên âm ghép (nucleus):</strong>
+                    <table style="margin-top: 1rem;">
+                        <thead>
+                            <tr>
+                                <th>Vần gốc</th>
+                                <th>Vần rút gọn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>UYÊ</td><td>Y</td></tr>
+                            <tr><td>IÊ/YÊ</td><td>I</td></tr>
+                            <tr><td>UÔ</td><td>U</td></tr>
+                            <tr><td>ƯƠ</td><td>Ư</td></tr>
+                            <tr><td>UÂ</td><td>Â</td></tr>
+                            <tr><td>UƠ</td><td>Ơ</td></tr>
+                            <tr><td>OĂ</td><td>Ă</td></tr>
+                            <tr><td>OE</td><td>E</td></tr>
+                            <tr><td>OA</td><td>O</td></tr>
+                            <tr><td>OAY</td><td>A (chỉ vần "oay")</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <strong>Bước 2 – Đổi chữ cuối (coda map):</strong>
+                    <table style="margin-top: 1rem;">
+                        <thead>
+                            <tr>
+                                <th>Âm cuối gốc</th>
+                                <th>Âm cuối mới</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>T</td><td>D</td></tr>
+                            <tr><td>P</td><td>F</td></tr>
+                            <tr><td>C</td><td>S</td></tr>
+                            <tr><td>N</td><td>L</td></tr>
+                            <tr><td>M</td><td>V</td></tr>
+                            <tr><td>NG</td><td>Z</td></tr>
+                            <tr><td>O/U</td><td>W</td></tr>
+                            <tr><td>I/Y</td><td>J</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 1.5rem;">
+                    <strong>Kết quả:</strong> Nhiều vần 3–4 chữ rút xuống 2 chữ.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8 -->
+        <div class="section" id="khd">
+            <h2 class="section-title">
+                <span class="section-number">8</span>
+                KHD: Mã hóa dấu
+            </h2>
+            <div class="card">
+                <h3 class="card-title">Cốt lõi "không dấu mà không mơ hồ"</h3>
+                <p>KHD chia nhóm theo loại nguyên âm trong CQN:</p>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">
+                    <span class="badge">Nhóm 1</span>
+                    Có dấu nón: â, ê, ô
+                </h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dấu thanh</th>
+                            <th>Hậu tố KHD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>sắc</td><td>B</td></tr>
+                        <tr><td>huyền</td><td>D</td></tr>
+                        <tr><td>hỏi</td><td>Q</td></tr>
+                        <tr><td>ngã</td><td>G</td></tr>
+                        <tr><td>nặng</td><td>F</td></tr>
+                        <tr><td>ngang</td><td>Y</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">
+                    <span class="badge">Nhóm 2</span>
+                    Có trăng/móc: ă, ơ, ư
+                </h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dấu thanh</th>
+                            <th>Hậu tố KHD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>sắc</td><td>X</td></tr>
+                        <tr><td>huyền</td><td>K</td></tr>
+                        <tr><td>hỏi</td><td>V</td></tr>
+                        <tr><td>ngã</td><td>W</td></tr>
+                        <tr><td>nặng</td><td>H</td></tr>
+                        <tr><td>ngang</td><td>O</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">
+                    <span class="badge">Nhóm 3</span>
+                    Không dấu phụ: a, e, i, o, u, y
+                </h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dấu thanh</th>
+                            <th>Hậu tố KHD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>sắc</td><td>J</td></tr>
+                        <tr><td>huyền</td><td>L</td></tr>
+                        <tr><td>hỏi</td><td>Z</td></tr>
+                        <tr><td>ngã</td><td>S</td></tr>
+                        <tr><td>nặng</td><td>R</td></tr>
+                    </tbody>
+                </table>
+                <div class="highlight-box" style="margin-top: 1rem;">
+                    <strong>Tối ưu:</strong> Nếu âm tiết kết thúc bằng <span class="code-inline">c/p/t</span> thì dấu sắc không thêm J để ngắn hơn.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9 -->
+        <div class="section" id="ky-hieu-p">
+            <h2 class="section-title">
+                <span class="section-number">9</span>
+                Ký hiệu P: Chống hiểu nhầm
+            </h2>
+            <div class="card">
+                <div class="highlight-box">
+                    <p><strong>P không mã hóa dấu;</strong> chỉ dùng để khử trùng/giảm nhầm cho một số mẫu nhất định.</p>
+                </div>
+                <p style="margin-top: 1.5rem;"><strong>Quy tắc:</strong> Kiểm tra vần không dấu phụ + không dấu thanh, nếu rơi vào tập "dễ trùng" → thêm P.</p>
+            </div>
+        </div>
+
+        <!-- Section 10 -->
+        <div class="section" id="vi-du">
+            <h2 class="section-title">
+                <span class="section-number">10</span>
+                Ví dụ minh họa
+            </h2>
+            
+            <div class="example-box">
+                <div class="example-title">Ví dụ 1: tuyết → tydb</div>
+                <div class="example-content">
+                    • Rút vần: uyêt → yd<br>
+                    • KHD: "ê + sắc" (dấu nón + sắc) → B<br>
+                    • Kết quả: <strong>tydb</strong>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">Ví dụ 2: nguyễn → wylg</div>
+                <div class="example-content">
+                    • NG/NGH → W<br>
+                    • uyên → yl<br>
+                    • "ê + ngã" → G<br>
+                    • Kết quả: <strong>wylg</strong>
+                </div>
+            </div>
+
+            <div class="card">
+                <p><em>Lưu ý: Các ví dụ khác khi triển khai IME nên kèm test theo từng pass: rút vần / KHD / phụ âm / P.</em></p>
+            </div>
+        </div>
+
+        <!-- Section 11 -->
+        <div class="section" id="thuat-toan">
+            <h2 class="section-title">
+                <span class="section-number">11</span>
+                Khung thuật toán
+            </h2>
+            <div class="card">
+                <h3 class="card-title">Pseudocode chuẩn triển khai</h3>
+                <div class="formula">
+                    <code>
+function CVNSS_Encode(syllable):
+    x = UnicodeNormalizeNFC(syllable)
+    (O, R, T, D) = VietnameseSyllableParse(x)
+
+    part1 = CompressCVN(R, O)              # Lần 1 (rút vần + coda map)
+    part2 = EncodeKHD(R, T, D)             # Lần 2 (mã dấu)
+    part3 = MapOnsetCoda(O, R, T)          # Lần 3 (phụ âm + Y/UY + luật đặc biệt)
+    part4 = DisambiguateP(R, T, D)         # Lần 4 (chống nhầm)
+
+    return Concat(part1, part2, part3, part4)
+                    </code>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: var(--accent); margin-bottom: 1rem;">Ghi chú triển khai quan trọng:</h4>
+                    <ul>
+                        <li>Normalize Unicode (NFC) trước khi parse để tránh sai do NFD</li>
+                        <li>Thiết kế parse âm tiết ổn định (O/R/T/D) là "xương sống" của engine</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 12 -->
+        <div class="section" id="ung-dung">
+            <h2 class="section-title">
+                <span class="section-number">12</span>
+                Ứng dụng (5 nhóm tình huống)
+            </h2>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3 class="card-title">1️⃣ Giao tiếp số không phụ thuộc IME</h3>
+                    <p>Chat, form quốc tế, thiết bị lạ</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">2️⃣ Tích hợp vào bộ gõ</h3>
+                    <p>Gõ CVNSS bung ra CQN (engine/IME)</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">3️⃣ Tối ưu dữ liệu</h3>
+                    <p>Log/định danh/đường dẫn – tránh lỗi encoding/font</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">4️⃣ AI/NLP</h3>
+                    <p>Biểu diễn phụ ASCII, token hóa dễ, vẫn giữ thông tin dấu (nhờ KHD)</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">5️⃣ Khung thiết kế chữ viết</h3>
+                    <p>Mô hình "ASCII hóa có quy tắc + mã hóa dấu" cho ngôn ngữ cần giải pháp gõ/hiển thị đơn giản</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 13 -->
+        <div class="section" id="lien-nganh">
+            <h2 class="section-title">
+                <span class="section-number">13</span>
+                Phần liên ngành bắt buộc phân biệt
+            </h2>
+            <div class="card">
+                <h3 class="card-title">Mã hóa/phiên mã ≠ Mật mã</h3>
+                
+                <div style="margin-top: 1.5rem;">
+                    <strong>Ba lớp biến đổi:</strong>
+                    <ol style="margin-top: 1rem;">
+                        <li><strong>Biểu diễn:</strong> Unicode code point → bytes (UTF-8) → hiển thị glyph</li>
+                        <li><strong>Phiên mã/tốc ký:</strong> CQN ↔ CVNSS (mục tiêu nhập liệu & chuẩn hóa)</li>
+                        <li><strong>Mật mã:</strong> che giấu nội dung (Caesar, hoán vị, AES…)</li>
+                    </ol>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 1.5rem;">
+                    <strong>CVNSS4.0 thuộc lớp (2).</strong> Caesar/hoán vị/Morse ở đây là phần giáo trình để hiểu hệ biến đổi nói chung.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 14 -->
+        <div class="section" id="caesar">
+            <h2 class="section-title">
+                <span class="section-number">14</span>
+                Mật mã Caesar
+            </h2>
+            <div class="card">
+                <p>Với bảng chữ cái A–Z (mã hóa base26), đặt A=0, …, Z=25</p>
+                <div class="formula">
+                    <code>
+Eₖ(p) = (p + k) mod 26<br>
+Dₖ(c) = (c − k) mod 26
+                    </code>
+                </div>
+                <div class="example-box" style="margin-top: 1.5rem;">
+                    <div class="example-title">Ví dụ: "HELLO", k=3</div>
+                    <div class="example-content">
+                        Kết quả: <strong>"KHOOR"</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 15 -->
+        <div class="section" id="hoan-vi">
+            <h2 class="section-title">
+                <span class="section-number">15</span>
+                Hoán vị (Transposition/Permutation)
+            </h2>
+            <div class="card">
+                <p>Với khối độ dài n, chọn hoán vị π trên {1..n}:</p>
+                <div class="formula">
+                    <code>Cᵢ = P<sub>π(i)</sub></code>
+                </div>
+                <p style="margin-top: 1rem;">Đây là lớp "đảo vị trí", khác Caesar là "dịch giá trị".</p>
+            </div>
+        </div>
+
+        <!-- Section 16 -->
+        <div class="section" id="base26">
+            <h2 class="section-title">
+                <span class="section-number">16</span>
+                Base26 (biểu diễn số bằng chữ)
+            </h2>
+            <div class="card">
+                <p>Ánh xạ v(A)=0, v(B)=1, …, v(Z)=25.</p>
+                <p>Với chuỗi L₀L₁…Lₙ₋₁:</p>
+                <div class="formula">
+                    <code>N = Σ v(Lᵢ) · 26<sup>n-1-i</sup></code>
+                    <p style="margin-top: 0.5rem; font-size: 0.9em; opacity: 0.8;">(với i từ 0 đến n-1)</p>
+                </div>
+                <div class="highlight-box" style="margin-top: 1rem;">
+                    <strong>Ứng dụng:</strong> Tạo mã ngắn dạng chữ, nén ID, nhãn kỹ thuật dễ nhập.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 17 -->
+        <div class="section" id="morse">
+            <h2 class="section-title">
+                <span class="section-number">17</span>
+                Mã Morse
+            </h2>
+            <div class="card">
+                <p>Morse là bảng ánh xạ ký tự → chuỗi . và - (ví dụ A=.-, B=-...).</p>
+                <div class="formula" style="margin-top: 1rem;">
+                    <div class="formula-title">Thuật toán dạng codebook:</div>
+                    <code>
+function MorseEncode(text):
+    out = []
+    for ch in text:
+        if ch is space: out.append("//")
+        else out.append(MORSE_TABLE[ch.upper()])
+        out.append("/")
+    return join(out).trim_end("/")
+                    </code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 18 -->
+        <div class="section" id="xep-chong">
+            <h2 class="section-title">
+                <span class="section-number">18</span>
+                Xếp chồng lớp biến đổi
+            </h2>
+            <div class="card">
+                <h3 class="card-title">Một bài học rất "đại học"</h3>
+                <p>Một pipeline liên ngành minh họa:</p>
+                <div class="flowchart" style="margin-top: 1.5rem;">
+                    <div class="flow-step">CQN (Unicode)</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-step">Normalize NFC</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-step">CVNSS (ASCII)</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-step" style="border-left-color: #f59e0b;">(Tuỳ chọn) Caesar/Hoán vị/base26 để minh họa mật mã/toán rời rạc</div>
+                    <div class="arrow">↓</div>
+                    <div class="flow-step" style="border-left-color: #8b5cf6;">(Tuỳ chọn) Morse để truyền qua kênh tín hiệu</div>
+                </div>
+                <div class="highlight-box" style="margin-top: 1.5rem;">
+                    <strong>Lưu ý học thuật:</strong> Các mật mã toy (Caesar/hoán vị) không bảo mật trong thực tế.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 19 -->
+        <div class="section" id="su-pham">
+            <h2 class="section-title">
+                <span class="section-number">19</span>
+                Ghi chú sư phạm: học theo "8 bài"
+            </h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3 class="card-title">📚 Bài 1-3: Nền tảng</h3>
+                    <ol>
+                        <li>Học KHD theo 3 nhóm nguyên âm + ngang</li>
+                        <li>Học phụ âm đầu</li>
+                        <li>Học phụ âm cuối</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">📚 Bài 4-5: Vần</h3>
+                    <ol start="4">
+                        <li>Học Y/UY</li>
+                        <li>Học "vần dài → 2 ký tự" (nucleus + coda map)</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">📚 Bài 6-7: Tối ưu</h3>
+                    <ol start="6">
+                        <li>Học luật sắc không thêm J khi cuối c/p/t</li>
+                        <li>Học P chống nhầm</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">📚 Bài 8: Thực hành</h3>
+                    <ol start="8">
+                        <li>Luyện chuyển đổi câu/đoạn thực tế + kiểm thử theo từng pass</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 20 -->
+        <div class="section" id="ket-luan">
+            <h2 class="section-title">
+                <span class="section-number">20</span>
+                Kết luận
+            </h2>
+            <div class="card">
+                <h3 class="card-title">Đúng tinh thần</h3>
+                <p><strong>CVNSS4.0</strong> là hệ tốc ký tiếng Việt dựa trên CQN, tối ưu cho thời đại số bằng hai ý tưởng then chốt:</p>
+                
+                <div class="grid-2" style="margin-top: 2rem;">
+                    <div class="highlight-box">
+                        <h4 style="color: var(--accent); margin-bottom: 0.75rem;">💡 Ý tưởng 1</h4>
+                        <p><strong>Rút gọn có hệ thống (CVN)</strong> để giảm độ dài và số phím.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4 style="color: var(--accent); margin-bottom: 0.75rem;">💡 Ý tưởng 2</h4>
+                        <p><strong>Mã hóa dấu bằng ASCII (KHD)</strong> để "không dấu nhưng vẫn khôi phục được", đồng thời dùng P để khử mơ hồ trong các mẫu đặc biệt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 CVNSS 4.0 - Kiều Trường Lâm & Trần Tư Bình</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Hệ quy tắc viết song song với Chữ Quốc Ngữ</p>
+    </footer>
+</body>
+</html>
