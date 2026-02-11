@@ -266,11 +266,11 @@ See the `LICENSE` file for details.
 
 # 🧭 Roadmap
 
-* CVNSS4.0 Core Specification (IETF-style)
-* Multi-agent language protocol integration
-* Official IME implementations
-* NLP datasets and benchmarks
-* International standardization
+* [2020-2025]. CVNSS4.0 Core Specification (IETF-style)
+* [2026-2027]. Multi-agent language protocol integration
+* [2026-2027]. Official IME implementations
+* [2026-2028]. NLP datasets and benchmarks
+* [2027-2030]. International standardization
 
 ---
 
